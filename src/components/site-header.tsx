@@ -1,15 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navigationItems, siteConfig } from "@/lib/content";
 import { Icon } from "@/components/icons";
+import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScrolledState = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    updateScrolledState();
+    window.addEventListener("scroll", updateScrolledState, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateScrolledState);
+    };
+  }, []);
 
   return (
-    <header className="site-header">
+    <header className={cn("site-header", isScrolled || isOpen ? "site-header-scrolled" : "site-header-top")}>
       <div className="container header-inner">
         <Link href="#uvod" className="brand-link">
           <span className="brand-mark">

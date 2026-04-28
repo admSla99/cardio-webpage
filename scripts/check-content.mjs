@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 
 const content = readFileSync(new URL("../src/lib/content.ts", import.meta.url), "utf8");
 const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
+const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
 
 const required = [
   "#0A1D37",
@@ -27,6 +28,19 @@ const forbidden = ["#20B2AA", "#006A65", "Ján Novák", "Anna Kováčová"];
 for (const value of forbidden) {
   if (content.includes(value) || css.includes(value.toLowerCase())) {
     throw new Error(`Forbidden unsupported value found: ${value}`);
+  }
+}
+
+const scrollHeaderRequirements = [
+  "isScrolled",
+  "window.addEventListener(\"scroll\"",
+  "site-header-top",
+  "site-header-scrolled",
+];
+
+for (const value of scrollHeaderRequirements) {
+  if (!header.includes(value) && !css.includes(value)) {
+    throw new Error(`Missing scroll-aware navbar behavior: ${value}`);
   }
 }
 

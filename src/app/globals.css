@@ -79,8 +79,19 @@ section[id] {
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, backdrop-filter 180ms ease;
+}
+
+.site-header-top {
+  background: transparent;
+}
+
+.site-header-scrolled {
+  border-bottom-color: rgba(226, 232, 240, 0.9);
   background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 34px rgba(10, 29, 55, 0.06);
   backdrop-filter: blur(18px);
 }
 
