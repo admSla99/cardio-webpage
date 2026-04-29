@@ -545,11 +545,22 @@ section[id] {
   justify-content: space-between;
   gap: 16px;
   border-bottom: 1px solid var(--border);
-  padding: 16px 0;
+  border-radius: 8px;
+  padding: 16px;
 }
 
 .hours-row:last-child {
   border-bottom: 0;
+}
+
+.hours-row-closed {
+  border-bottom-color: transparent;
+  border-radius: 0;
+  background: rgba(225, 29, 72, 0.08);
+}
+
+.hours-row-closed + .hours-row-closed {
+  border-top-color: transparent;
 }
 
 .hours-row div {
@@ -565,6 +576,11 @@ section[id] {
 .hours-row > span {
   color: var(--slate);
   font-weight: 900;
+}
+
+.hours-row-closed strong,
+.hours-row-closed > span {
+  color: var(--red);
 }
 
 .gallery-heading {

@@ -4,6 +4,7 @@ const content = readFileSync(new URL("../src/lib/content.ts", import.meta.url), 
 const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
 const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
 const hero = readFileSync(new URL("../src/components/hero-section.tsx", import.meta.url), "utf8");
+const openingHours = readFileSync(new URL("../src/components/opening-hours-section.tsx", import.meta.url), "utf8");
 
 const required = [
   "#0A1D37",
@@ -99,6 +100,19 @@ const largeHeroLayoutRequirements = [
 for (const value of largeHeroLayoutRequirements) {
   if (!css.includes(value)) {
     throw new Error(`Missing large desktop hero layout behavior: ${value}`);
+  }
+}
+
+const openingHoursVisualRequirements = [
+  "hours-row-closed",
+  "row.hours === \"neordinuje\"",
+  "rgba(225, 29, 72, 0.08)",
+  ".hours-row-closed + .hours-row-closed",
+];
+
+for (const value of openingHoursVisualRequirements) {
+  if (!css.includes(value) && !content.includes(value) && !openingHours.includes(value)) {
+    throw new Error(`Missing closed opening-hours visual behavior: ${value}`);
   }
 }
 

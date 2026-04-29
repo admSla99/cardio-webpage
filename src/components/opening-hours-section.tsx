@@ -1,5 +1,6 @@
 import { Icon } from "@/components/icons";
 import { openingHours } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export function OpeningHoursSection() {
   return (
@@ -13,7 +14,7 @@ export function OpeningHoursSection() {
 
         <div className="hours-card">
           {openingHours.map((row) => (
-            <div key={row.day} className="hours-row">
+            <div key={row.day} className={cn("hours-row", row.hours === "neordinuje" && "hours-row-closed")}>
               <div>
                 <span className="row-icon">
                   <Icon name="timer" className="icon-sm" />
