@@ -299,7 +299,7 @@ section[id] {
 
 .hero-title-track {
   display: grid;
-  animation: hero-title-roll 9s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  animation: hero-title-roll 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
   will-change: transform;
 }
 
@@ -312,23 +312,17 @@ section[id] {
 
 @keyframes hero-title-roll {
   0%,
-  22% {
+  38% {
     transform: translateY(0);
   }
 
-  30%,
-  52% {
+  50%,
+  88% {
     transform: translateY(calc(var(--hero-title-slot) * -1));
   }
 
-  60%,
-  82% {
-    transform: translateY(calc(var(--hero-title-slot) * -2));
-  }
-
-  90%,
   100% {
-    transform: translateY(calc(var(--hero-title-slot) * -3));
+    transform: translateY(calc(var(--hero-title-slot) * -2));
   }
 }
 
@@ -387,8 +381,11 @@ section[id] {
 
 .hero-visual img {
   width: 100%;
+  aspect-ratio: 4 / 3;
   height: auto;
   border-radius: 18px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .section {
@@ -621,6 +618,17 @@ section[id] {
   color: var(--navy);
 }
 
+.contact-item a {
+  display: block;
+  margin-top: 4px;
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.contact-item a:hover {
+  color: var(--red);
+}
+
 .map-card {
   display: flex;
   min-height: 420px;
@@ -639,6 +647,10 @@ section[id] {
 
 .map-card p {
   color: rgba(255, 255, 255, 0.76);
+}
+
+.map-card p span {
+  display: block;
 }
 
 .map-icon {
@@ -757,6 +769,22 @@ button:focus-visible {
 
   .gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-grid {
+    width: min(100% - 96px, 1560px);
+    grid-template-columns: minmax(0, 0.9fr) minmax(560px, 1.1fr);
+    gap: 72px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(64px, 4.2vw, 80px);
+  }
+
+  .hero-copy p {
+    max-width: 760px;
   }
 }
 
