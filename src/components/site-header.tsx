@@ -32,7 +32,7 @@ export function SiteHeader() {
           </span>
           <span>
             <span className="brand-name">{siteConfig.shortName}</span>
-            <span className="brand-subtitle">Kardiologická ambulancia</span>
+            <span className="brand-subtitle">Kardiologická a interná ambulancia</span>
           </span>
         </Link>
 

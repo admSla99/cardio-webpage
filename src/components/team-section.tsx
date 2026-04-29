@@ -8,9 +8,7 @@ export function TeamSection() {
         <div className="section-heading compact">
           <p>Tím</p>
           <h2>Odborný tím s pokojnou komunikáciou</h2>
-          <span>
-            Mená lekárov sú pripravené ako editovateľné hodnoty a budú doplnené podľa finálnych podkladov ambulancie.
-          </span>
+          <span>Ambulanciu vedie MUDr. Eva Hrbatá spolu so sestrou Andreou Slaninkovou.</span>
         </div>
 
         <div className="team-grid">

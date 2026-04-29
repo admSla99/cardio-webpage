@@ -7,9 +7,10 @@ export function ServicesSection() {
       <div className="container">
         <div className="section-heading">
           <p>Služby</p>
-          <h2>Kardiologická diagnostika v prehľadnej forme</h2>
+          <h2>Kardiologická diagnostika a vnútorné lekárstvo</h2>
           <span>
-            Základné vyšetrenia a monitorovanie sú pripravené tak, aby bol postup pre pacienta zrozumiteľný a pokojný.
+            Základné vyšetrenia, monitorovanie a ambulancia vnútorného lekárstva sú vedené tak, aby bol postup pre
+            pacienta zrozumiteľný a pokojný.
           </span>
         </div>
 

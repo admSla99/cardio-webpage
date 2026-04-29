@@ -7,8 +7,8 @@ export function OpeningHoursSection() {
       <div className="container split-grid">
         <div className="section-heading compact">
           <p>Ordinačné hodiny</p>
-          <h2>Prehľadný rozvrh pripravený na doplnenie</h2>
-          <span>Časy sú neutrálne editovateľné hodnoty, aby sa nezverejnil neoverený rozvrh ambulancie.</span>
+          <h2>Ordinačné hodiny ambulancie</h2>
+          <span>Aktuálny rozvrh ordinácie počas pracovných dní a víkendu.</span>
         </div>
 
         <div className="hours-card">

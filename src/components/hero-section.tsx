@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Icon } from "@/components/icons";
-import { heroHeadlineWords, heroStats, siteConfig } from "@/lib/content";
+import { heroSpecialtyWords, heroStats, siteConfig } from "@/lib/content";
 
 export function HeroSection() {
-  const rollingHeadlineWords = [...heroHeadlineWords, heroHeadlineWords[0]];
+  const rollingSpecialtyWords = [...heroSpecialtyWords, heroSpecialtyWords[0]];
 
   return (
     <section id="uvod" className="hero-section">
@@ -14,20 +14,22 @@ export function HeroSection() {
             Poliklinika Sabinov
           </div>
           <h1>
-            <span>Medeph kardiologická</span>{" "}
-            <span className="sr-only">{heroHeadlineWords[0]}</span>
+            <span>Medeph</span>{" "}
+            <span className="sr-only">kardiologická ambulancia a interná ambulancia</span>
             <span className="hero-title-roller" aria-hidden="true">
               <span className="hero-title-track">
-                {rollingHeadlineWords.map((word, index) => (
+                {rollingSpecialtyWords.map((word, index) => (
                   <span key={`${word}-${index}`} className="hero-title-word">
                     {word}
                   </span>
                 ))}
               </span>
-            </span>
+            </span>{" "}
+            <span aria-hidden="true">ambulancia</span>
           </h1>
           <p>
-            Odborná starostlivosť o vaše srdce v modernom a pokojnom prostredí Polikliniky Sabinov.
+            Odborná starostlivosť o vaše srdce s doplnkovým zameraním na ambulanciu vnútorného lekárstva v
+            Poliklinike Sabinov.
           </p>
           <div className="hero-actions">
             <a href="#kontakt" className="button button-primary">
@@ -53,10 +55,10 @@ export function HeroSection() {
 
         <div className="hero-visual">
           <Image
-            src="/images/clinic-hero.svg"
-            alt="Ilustračný vizuál modernej kardiologickej ambulancie"
-            width={1200}
-            height={900}
+            src="/images/pexels-karola-g-5207102.webp"
+            alt="Zdravotnícky pracovník so stetoskopom a symbolom srdca pre kardiologickú a internú ambulanciu Medeph"
+            width={6720}
+            height={4480}
             priority
           />
         </div>

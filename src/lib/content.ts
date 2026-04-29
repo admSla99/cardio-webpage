@@ -15,7 +15,7 @@ export const siteConfig = {
   shortName: "Medeph",
   location: "Poliklinika Sabinov",
   description:
-    "Odborná kardiologická starostlivosť v modernom a pokojnom prostredí Polikliniky Sabinov.",
+    "Odborná kardiologická starostlivosť a ambulancia vnútorného lekárstva v Poliklinike Sabinov.",
   primaryCta: "Objednať sa",
   secondaryCta: "Kde nás nájdete",
 } as const;
@@ -57,23 +57,25 @@ export const services = [
 
 export const doctors = [
   {
-    name: "MUDr. Meno Priezvisko",
-    role: "Kardiológia",
+    name: "MUDr. Eva Hrbatá",
+    role: "Lekár",
     image: "/images/diagnostics.svg",
   },
   {
-    name: "MUDr. Meno Priezvisko",
-    role: "Kardiologická starostlivosť",
+    name: "Andrea Slaninková",
+    role: "Sestra",
     image: "/images/reception.svg",
   },
 ] as const;
 
 export const openingHours = [
-  { day: "Pondelok", hours: "00:00 - 00:00" },
-  { day: "Utorok", hours: "00:00 - 00:00" },
-  { day: "Streda", hours: "00:00 - 00:00" },
-  { day: "Štvrtok", hours: "00:00 - 00:00" },
-  { day: "Piatok", hours: "00:00 - 00:00" },
+  { day: "Pondelok", hours: "7:00-14:00" },
+  { day: "Utorok", hours: "7:00-14:00" },
+  { day: "Streda", hours: "7:00-14:00" },
+  { day: "Štvrtok", hours: "7:00-14:00" },
+  { day: "Piatok", hours: "7:00-13:00" },
+  { day: "Sobota", hours: "neordinuje" },
+  { day: "Nedeľa", hours: "neordinuje" },
 ] as const;
 
 export const galleryItems = [
@@ -93,12 +95,21 @@ export const galleryItems = [
 
 export const contact = {
   location: "Poliklinika Sabinov",
-  addressLine: "Presná adresa bude doplnená",
-  phone: "+421 XXX XXX XXX",
-  email: "kontakt bude doplnený",
+  addressLine: "SNP 501/1, 08301 Sabinov",
+  addressLines: ["Poliklinika", "SNP 501/1", "08301 Sabinov"],
+  provider: "MEDEPH s.r.o.",
+  companyId: "IČO: 52068811",
+  insurance: "VšZP, Dôvera, Union",
+  phone: "0915 148 518",
+  landline: "051 773 9742",
+  email: "kardiosb@gmail.com",
   points: [
-    { label: "Telefón", value: "+421 XXX XXX XXX", icon: "phone" },
-    { label: "Lokalita", value: "Poliklinika Sabinov", icon: "pin" },
+    { label: "Mobil", value: "0915 148 518", icon: "phone", href: "tel:0915148518" },
+    { label: "Telefón", value: "051 773 9742", icon: "phone", href: "tel:0517739742" },
+    { label: "Email", value: "kardiosb@gmail.com", icon: "calendar", href: "mailto:kardiosb@gmail.com" },
+    { label: "Miesto prevádzkovania", value: "Poliklinika, SNP 501/1, 08301 Sabinov", icon: "pin" },
+    { label: "Poisťovne", value: "VšZP, Dôvera, Union", icon: "calendar" },
+    { label: "Poskytovateľ", value: "MEDEPH s.r.o., IČO: 52068811", icon: "pulse" },
     { label: "Objednanie", value: "Po telefonickom dohovore", icon: "calendar" },
   ],
 } as const;
@@ -109,6 +120,6 @@ export const heroStats = [
   { label: "Starostlivosť", value: "1:1", unit: "prístup" },
 ] as const;
 
-export const heroHeadlineWords = ["ambulancia", "diagnostika", "prevencia"] as const;
+export const heroSpecialtyWords = ["kardiologická", "interná"] as const;
 
 export const footerLinks = navigationItems;

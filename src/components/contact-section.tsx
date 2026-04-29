@@ -10,7 +10,7 @@ export function ContactSection() {
             <p>Kontakt</p>
             <h2>Nájdete nás v Poliklinike Sabinov</h2>
             <span>
-              Kontaktné údaje sú pripravené na doplnenie finálnym telefónnym číslom, presnou adresou a mapovým odkazom.
+              Ambulancia pôsobí v Poliklinike Sabinov na adrese SNP 501/1. Objednanie prebieha telefonicky.
             </span>
           </div>
 
@@ -22,7 +22,7 @@ export function ContactSection() {
                 </span>
                 <div>
                   <span>{item.label}</span>
-                  <strong>{item.value}</strong>
+                  {"href" in item ? <a href={item.href}>{item.value}</a> : <strong>{item.value}</strong>}
                 </div>
               </div>
             ))}
@@ -39,11 +39,19 @@ export function ContactSection() {
           </span>
           <div>
             <h3>{contact.location}</h3>
-            <p>{contact.addressLine}</p>
+            <p>
+              {contact.addressLines.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </p>
           </div>
           <div className="map-placeholder">
-            <strong>Mapový blok</strong>
-            <p>Sem sa doplní finálna mapa alebo odkaz na navigáciu po potvrdení presnej adresy.</p>
+            <strong>{contact.provider}</strong>
+            <p>
+              {contact.companyId}
+              <br />
+              Poisťovne: {contact.insurance}
+            </p>
           </div>
         </div>
       </div>
