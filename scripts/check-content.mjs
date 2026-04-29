@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 const content = readFileSync(new URL("../src/lib/content.ts", import.meta.url), "utf8");
 const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
 const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
+const hero = readFileSync(new URL("../src/components/hero-section.tsx", import.meta.url), "utf8");
 
 const required = [
   "#0A1D37",
@@ -41,6 +42,22 @@ const scrollHeaderRequirements = [
 for (const value of scrollHeaderRequirements) {
   if (!header.includes(value) && !css.includes(value)) {
     throw new Error(`Missing scroll-aware navbar behavior: ${value}`);
+  }
+}
+
+const heroRollerRequirements = [
+  "heroHeadlineWords",
+  "hero-title-roller",
+  "hero-title-word",
+  "--hero-title-bleed",
+  "--hero-title-slot",
+  "@keyframes hero-title-roll",
+  "prefers-reduced-motion",
+];
+
+for (const value of heroRollerRequirements) {
+  if (!content.includes(value) && !hero.includes(value) && !css.includes(value)) {
+    throw new Error(`Missing hero headline roller behavior: ${value}`);
   }
 }
 

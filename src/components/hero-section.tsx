@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Icon } from "@/components/icons";
-import { heroStats, siteConfig } from "@/lib/content";
+import { heroHeadlineWords, heroStats, siteConfig } from "@/lib/content";
 
 export function HeroSection() {
+  const rollingHeadlineWords = [...heroHeadlineWords, heroHeadlineWords[0]];
+
   return (
     <section id="uvod" className="hero-section">
       <div className="container hero-grid">
@@ -11,7 +13,19 @@ export function HeroSection() {
             <Icon name="pulse" className="icon-sm" />
             Poliklinika Sabinov
           </div>
-          <h1>Medeph kardiologická ambulancia</h1>
+          <h1>
+            <span>Medeph kardiologická</span>{" "}
+            <span className="sr-only">{heroHeadlineWords[0]}</span>
+            <span className="hero-title-roller" aria-hidden="true">
+              <span className="hero-title-track">
+                {rollingHeadlineWords.map((word, index) => (
+                  <span key={`${word}-${index}`} className="hero-title-word">
+                    {word}
+                  </span>
+                ))}
+              </span>
+            </span>
+          </h1>
           <p>
             Odborná starostlivosť o vaše srdce v modernom a pokojnom prostredí Polikliniky Sabinov.
           </p>

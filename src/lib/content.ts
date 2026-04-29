@@ -109,4 +109,6 @@ export const heroStats = [
   { label: "Starostlivosť", value: "1:1", unit: "prístup" },
 ] as const;
 
+export const heroHeadlineWords = ["ambulancia", "diagnostika", "prevencia"] as const;
+
 export const footerLinks = navigationItems;
