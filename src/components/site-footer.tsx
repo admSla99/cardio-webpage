@@ -35,6 +35,7 @@ export function SiteFooter() {
             <p>{contact.location}</p>
             <p>{contact.addressLine}</p>
             <p>{contact.phone}</p>
+            <p>{contact.email}</p>
           </div>
         </div>
       </div>
