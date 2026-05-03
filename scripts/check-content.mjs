@@ -5,6 +5,7 @@ const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "ut
 const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
 const hero = readFileSync(new URL("../src/components/hero-section.tsx", import.meta.url), "utf8");
 const openingHours = readFileSync(new URL("../src/components/opening-hours-section.tsx", import.meta.url), "utf8");
+const contactSection = readFileSync(new URL("../src/components/contact-section.tsx", import.meta.url), "utf8");
 
 const required = [
   "#0A1D37",
@@ -113,6 +114,22 @@ const openingHoursVisualRequirements = [
 for (const value of openingHoursVisualRequirements) {
   if (!css.includes(value) && !content.includes(value) && !openingHours.includes(value)) {
     throw new Error(`Missing closed opening-hours visual behavior: ${value}`);
+  }
+}
+
+const mapRequirements = [
+  "mapEmbedUrl",
+  "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
+  "<iframe",
+  "title={`${contact.location} mapa`}",
+  "loading=\"lazy\"",
+  "referrerPolicy=\"no-referrer-when-downgrade\"",
+  "map-frame",
+];
+
+for (const value of mapRequirements) {
+  if (!content.includes(value) && !contactSection.includes(value) && !css.includes(value)) {
+    throw new Error(`Missing real Google Maps embed behavior: ${value}`);
   }
 }
 
