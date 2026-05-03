@@ -46,6 +46,16 @@ export function ContactSection() {
             </p>
           </div>
           <div className="map-placeholder">
+            <iframe
+              className="map-frame"
+              src={contact.mapEmbedUrl}
+              title={`${contact.location} mapa`}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="map-meta">
             <strong>{contact.provider}</strong>
             <p>
               {contact.companyId}
