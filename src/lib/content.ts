@@ -97,6 +97,8 @@ export const contact = {
   location: "Poliklinika Sabinov",
   addressLine: "SNP 501/1, 08301 Sabinov",
   addressLines: ["Poliklinika", "SNP 501/1", "08301 Sabinov"],
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
   provider: "MEDEPH s.r.o.",
   companyId: "IČO: 52068811",
   insurance: "VšZP, Dôvera, Union",
