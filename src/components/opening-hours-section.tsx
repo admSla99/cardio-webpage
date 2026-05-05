@@ -35,8 +35,8 @@ export function OpeningHoursSection() {
             </span>
             <h3>Oznamy</h3>
           </div>
-          {openingNotices.map((notice) => (
-            <p key={notice}>{notice}</p>
+          {openingNotices.map((notice, index) => (
+            <p key={`${notice}-${index}`}>{notice}</p>
           ))}
         </aside>
       </div>

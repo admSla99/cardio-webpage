@@ -4,19 +4,35 @@ import { useEffect, useState } from "react";
 
 const cookieConsentKey = "medephCookieConsent";
 
+function safeGetItem(key: string) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeSetItem(key: string, value: string) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    return;
+  }
+}
+
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
-      setIsVisible(window.localStorage.getItem(cookieConsentKey) !== "accepted");
+      setIsVisible(safeGetItem(cookieConsentKey) !== "accepted");
     }, 0);
 
     return () => window.clearTimeout(timeoutId);
   }, []);
 
   function acceptCookies() {
-    window.localStorage.setItem(cookieConsentKey, "accepted");
+    safeSetItem(cookieConsentKey, "accepted");
     setIsVisible(false);
   }
 
