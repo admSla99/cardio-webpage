@@ -11,11 +11,11 @@ export const designTokens = {
 } as const;
 
 export const siteConfig = {
-  name: "Medeph kardiologická ambulancia",
-  shortName: "Medeph",
+  name: "MEDEPH s.r.o.",
+  shortName: "MEDEPH s.r.o.",
   location: "Poliklinika Sabinov",
   description:
-    "Odborná kardiologická starostlivosť a ambulancia vnútorného lekárstva v Poliklinike Sabinov.",
+    "Odborná kardiologická a interná ambulancia v Poliklinike Sabinov.",
   primaryCta: "Objednať sa",
   secondaryCta: "Kde nás nájdete",
 } as const;
@@ -78,6 +78,10 @@ export const openingHours = [
   { day: "Nedeľa", hours: "neordinuje" },
 ] as const;
 
+export const openingNotices = [
+  "Momentálne nie sú zverejnené žiadne mimoriadne oznamy.",
+] as const;
+
 export const galleryItems = [
   {
     title: "Vyšetrovacie prostredie",
@@ -110,7 +114,7 @@ export const contact = {
     { label: "Miesto prevádzkovania", value: "Poliklinika, SNP 501/1, 08301 Sabinov", icon: "pin" },
     { label: "Poisťovne", value: "VšZP, Dôvera, Union", icon: "calendar" },
     { label: "Poskytovateľ", value: "MEDEPH s.r.o., IČO: 52068811", icon: "pulse" },
-    { label: "Objednanie", value: "Po telefonickom dohovore", icon: "calendar" },
+    { label: "Objednanie", value: "Telefonicky aj mailom", icon: "calendar" },
   ],
 } as const;
 

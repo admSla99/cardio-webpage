@@ -1,4 +1,5 @@
 import { ContactSection } from "@/components/contact-section";
+import { CookieConsent } from "@/components/cookie-consent";
 import { GallerySection } from "@/components/gallery-section";
 import { HeroSection } from "@/components/hero-section";
 import { OpeningHoursSection } from "@/components/opening-hours-section";
@@ -20,6 +21,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <SiteFooter />
+      <CookieConsent />
     </>
   );
 }

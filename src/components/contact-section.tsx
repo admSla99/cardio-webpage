@@ -10,7 +10,7 @@ export function ContactSection() {
             <p>Kontakt</p>
             <h2>Nájdete nás v Poliklinike Sabinov</h2>
             <span>
-              Ambulancia pôsobí v Poliklinike Sabinov na adrese SNP 501/1. Objednanie prebieha telefonicky.
+              Ambulancia pôsobí v Poliklinike Sabinov na adrese SNP 501/1. Objednanie prebieha telefonicky aj mailom.
             </span>
           </div>
 
