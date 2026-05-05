@@ -136,6 +136,10 @@ section[id] {
   color: white;
 }
 
+.brand-mark svg path:last-child {
+  stroke: var(--red);
+}
+
 .footer-mark {
   background: white;
   color: var(--navy);
@@ -444,7 +448,8 @@ section[id] {
 
 .card,
 .gallery-card,
-.hours-card {
+.hours-card,
+.notice-card {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: white;
@@ -534,6 +539,12 @@ section[id] {
   font-weight: 800;
 }
 
+.opening-hours-layout,
+.opening-hours-main {
+  display: grid;
+  gap: 24px;
+}
+
 .hours-card {
   padding: 16px;
   background: var(--background);
@@ -581,6 +592,42 @@ section[id] {
 .hours-row-closed strong,
 .hours-row-closed > span {
   color: var(--red);
+}
+
+.notice-card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.notice-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--red);
+  content: "";
+}
+
+.notice-card-wide {
+  padding: 24px 24px 24px 28px;
+}
+
+.notice-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notice-card h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 18px;
+}
+
+.notice-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .gallery-heading {
@@ -743,6 +790,39 @@ section[id] {
   font-size: 14px;
 }
 
+.cookie-consent {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  display: flex;
+  width: min(calc(100% - 32px), 720px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.96);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 18px;
+  box-shadow: 0 22px 60px rgba(10, 29, 55, 0.18);
+}
+
+.cookie-consent strong {
+  display: block;
+  color: var(--navy);
+}
+
+.cookie-consent p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.cookie-consent .button {
+  flex: 0 0 auto;
+}
+
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--red);
@@ -776,6 +856,10 @@ button:focus-visible {
   .hero-grid,
   .split-grid,
   .contact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  }
+
+  .opening-hours-main {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
   }
 
@@ -833,6 +917,12 @@ button:focus-visible {
   .hours-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .cookie-consent {
+    left: 16px;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 

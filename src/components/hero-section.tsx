@@ -14,7 +14,7 @@ export function HeroSection() {
             Poliklinika Sabinov
           </div>
           <h1>
-            <span>Medeph</span>{" "}
+            <span>MEDEPH s.r.o.</span>{" "}
             <span className="sr-only">kardiologická ambulancia a interná ambulancia</span>
             <span className="hero-title-roller" aria-hidden="true">
               <span className="hero-title-track">
@@ -56,7 +56,7 @@ export function HeroSection() {
         <div className="hero-visual">
           <Image
             src="/images/pexels-karola-g-5207102.webp"
-            alt="Zdravotnícky pracovník so stetoskopom a symbolom srdca pre kardiologickú a internú ambulanciu Medeph"
+            alt="Zdravotnícky pracovník so stetoskopom a symbolom srdca pre kardiologickú a internú ambulanciu MEDEPH s.r.o."
             width={6720}
             height={4480}
             priority
