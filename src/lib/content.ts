@@ -101,14 +101,14 @@ export const contact = {
   location: "Poliklinika Sabinov",
   addressLine: "SNP 501/1, 08301 Sabinov",
   addressLines: ["Poliklinika", "SNP 501/1", "08301 Sabinov"],
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
   provider: "MEDEPH s.r.o.",
   companyId: "IČO: 52068811",
   insurance: "VšZP, Dôvera, Union",
   phone: "0915 148 518",
   landline: "051 773 9742",
   email: "kardiosb@gmail.com",
-  mapEmbedUrl:
-    "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
   points: [
     { label: "Mobil", value: "0915 148 518", icon: "phone", href: "tel:0915148518" },
     { label: "Telefón", value: "051 773 9742", icon: "phone", href: "tel:0517739742" },

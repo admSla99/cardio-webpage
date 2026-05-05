@@ -34,31 +34,34 @@ export function ContactSection() {
         </div>
 
         <div className="map-card">
-          <iframe
-            src={contact.mapEmbedUrl}
-            title="Mapa: Poliklinika Sabinov, SNP 501/1"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-          <div className="map-details">
-            <span className="map-icon">
-              <Icon name="pin" className="icon-lg" />
-            </span>
-            <div>
-              <h3>{contact.location}</h3>
-              <p>
-                {contact.addressLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </p>
-              <strong>{contact.provider}</strong>
-              <p>
-                {contact.companyId}
-                <br />
-                Poisťovne: {contact.insurance}
-              </p>
-            </div>
+          <span className="map-icon">
+            <Icon name="pin" className="icon-lg" />
+          </span>
+          <div>
+            <h3>{contact.location}</h3>
+            <p>
+              {contact.addressLines.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </p>
+          </div>
+          <div className="map-placeholder">
+            <iframe
+              className="map-frame"
+              src={contact.mapEmbedUrl}
+              title={`${contact.location} mapa`}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="map-meta">
+            <strong>{contact.provider}</strong>
+            <p>
+              {contact.companyId}
+              <br />
+              Poisťovne: {contact.insurance}
+            </p>
           </div>
         </div>
       </div>
