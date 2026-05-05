@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 
 const content = readFileSync(new URL("../src/lib/content.ts", import.meta.url), "utf8");
 const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
+const cssLower = css.toLowerCase();
 const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
 const hero = readFileSync(new URL("../src/components/hero-section.tsx", import.meta.url), "utf8");
 const openingHours = readFileSync(new URL("../src/components/opening-hours-section.tsx", import.meta.url), "utf8");
@@ -70,7 +71,7 @@ for (const value of required) {
     !appIcon.includes(value) &&
     !openingHours.includes(value) &&
     !page.includes(value) &&
-    !css.includes(value.toLowerCase())
+    !cssLower.includes(value.toLowerCase())
   ) {
     throw new Error(`Missing required content or token: ${value}`);
   }
@@ -105,6 +106,7 @@ const forbidden = [
 for (const value of forbidden) {
   if (
     content.includes(value) ||
+    hero.includes(value) ||
     servicesSection.includes(value) ||
     teamSection.includes(value) ||
     contactSection.includes(value) ||
@@ -113,7 +115,7 @@ for (const value of forbidden) {
     layout.includes(value) ||
     openingHours.includes(value) ||
     page.includes(value) ||
-    css.includes(value.toLowerCase())
+    cssLower.includes(value.toLowerCase())
   ) {
     throw new Error(`Forbidden unsupported value found: ${value}`);
   }
