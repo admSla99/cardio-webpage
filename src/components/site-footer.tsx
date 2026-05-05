@@ -40,7 +40,9 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="footer-bottom">
-        <div className="container">© {year} Medeph. Všetky práva vyhradené.</div>
+        <div className="container">
+          © {year} MEDEPH s.r.o. - Odborná kardiologická a interná ambulancia. Všetky práva vyhradené.
+        </div>
       </div>
     </footer>
   );
