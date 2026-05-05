@@ -183,4 +183,20 @@ for (const value of openingHoursVisualRequirements) {
   }
 }
 
+const mapRequirements = [
+  "mapEmbedUrl",
+  "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
+  "<iframe",
+  "title={`${contact.location} mapa`}",
+  "loading=\"lazy\"",
+  "referrerPolicy=\"no-referrer-when-downgrade\"",
+  "map-frame",
+];
+
+for (const value of mapRequirements) {
+  if (!content.includes(value) && !contactSection.includes(value) && !css.includes(value)) {
+    throw new Error(`Missing real Google Maps embed behavior: ${value}`);
+  }
+}
+
 console.log("Content safety checks passed.");
