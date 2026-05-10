@@ -36,6 +36,12 @@ export const services = [
     icon: "pulse",
   },
   {
+    title: "Ergometria - záťažové EKG",
+    description:
+      "Záťažové vyšetrenie pomáha zhodnotiť reakciu srdca na fyzickú záťaž.",
+    icon: "pulse",
+  },
+  {
     title: "Echokardiografia",
     description:
       "Ultrazvukové vyšetrenie srdca zamerané na štruktúru, funkciu a celkový stav srdcového svalu.",
@@ -84,16 +90,16 @@ export const openingNotices = [
 
 export const galleryItems = [
   {
-    title: "Vyšetrovacie prostredie",
-    image: "/images/clinic-room.svg",
+    title: "Vstup do ambulancie",
+    image: "/images/entry.webp",
   },
   {
-    title: "Diagnostické vybavenie",
-    image: "/images/diagnostics.svg",
+    title: "Vyšetrovacia miestnosť",
+    image: "/images/room1.webp",
   },
   {
-    title: "Recepcia a navigácia",
-    image: "/images/reception.svg",
+    title: "Ambulancia MEDEPH",
+    image: "/images/room2.webp",
   },
 ] as const;
 

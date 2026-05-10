@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 
 const content = readFileSync(new URL("../src/lib/content.ts", import.meta.url), "utf8");
+const nextConfig = readFileSync(new URL("../next.config.ts", import.meta.url), "utf8");
 const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
 const cssLower = css.toLowerCase();
 const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
@@ -8,6 +9,7 @@ const hero = readFileSync(new URL("../src/components/hero-section.tsx", import.m
 const openingHours = readFileSync(new URL("../src/components/opening-hours-section.tsx", import.meta.url), "utf8");
 const servicesSection = readFileSync(new URL("../src/components/services-section.tsx", import.meta.url), "utf8");
 const teamSection = readFileSync(new URL("../src/components/team-section.tsx", import.meta.url), "utf8");
+const gallerySection = readFileSync(new URL("../src/components/gallery-section.tsx", import.meta.url), "utf8");
 const contactSection = readFileSync(new URL("../src/components/contact-section.tsx", import.meta.url), "utf8");
 const cookieConsent = readFileSync(new URL("../src/components/cookie-consent.tsx", import.meta.url), "utf8");
 const page = readFileSync(new URL("../src/app/page.tsx", import.meta.url), "utf8");
@@ -15,6 +17,11 @@ const footer = readFileSync(new URL("../src/components/site-footer.tsx", import.
 const layout = readFileSync(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
 const appIconUrl = new URL("../src/app/icon.svg", import.meta.url);
 const appIcon = existsSync(appIconUrl) ? readFileSync(appIconUrl, "utf8") : "";
+const requiredImageFiles = [
+  "../public/images/entry.webp",
+  "../public/images/room1.webp",
+  "../public/images/room2.webp",
+];
 
 const required = [
   "#0A1D37",
@@ -62,14 +69,39 @@ const required = [
   "viewBox=\"0 0 32 32\"",
   ".brand-mark svg path:last-child",
   "stroke: var(--red)",
+  "Ergometria - záťažové EKG",
+  "Záťažové vyšetrenie pomáha zhodnotiť reakciu srdca na fyzickú záťaž.",
+  "/images/entry.webp",
+  "/images/room1.webp",
+  "/images/room2.webp",
+  "repeat(5, minmax(0, 1fr))",
+  "turbopack",
+  "root: projectRoot",
+  "\"use client\"",
+  "selectedImage",
+  "gallery-trigger",
+  "gallery-lightbox",
+  "gallery-lightbox-close",
+  "document.addEventListener(\"keydown\"",
+  "document.removeEventListener(\"keydown\"",
+  "handleKeyDown",
+  "aspect-ratio: 3 / 4",
 ];
+
+for (const imageFile of requiredImageFiles) {
+  if (!existsSync(new URL(imageFile, import.meta.url))) {
+    throw new Error(`Missing required image file: ${imageFile}`);
+  }
+}
 
 for (const value of required) {
   if (
     !content.includes(value) &&
+    !nextConfig.includes(value) &&
     !hero.includes(value) &&
     !servicesSection.includes(value) &&
     !teamSection.includes(value) &&
+    !gallerySection.includes(value) &&
     !contactSection.includes(value) &&
     !cookieConsent.includes(value) &&
     !footer.includes(value) &&
@@ -107,14 +139,21 @@ const forbidden = [
   "Ambulanciu vedie MUDr. Eva Hrbatá spolu so sestrou Andreou Slaninkovou.",
   "Objednanie prebieha telefonicky.",
   "Po telefonickom dohovore",
+  "Vizuály sú pripravené ako lokálne nahraditeľné assety pre finálne fotografie ambulancie.",
+  "Fotografie ambulancie a priestorov MEDEPH s.r.o.",
+  "/images/entry.jpg",
+  "/images/room1.jpg",
+  "/images/room2.jpg",
 ];
 
 for (const value of forbidden) {
   if (
     content.includes(value) ||
+    nextConfig.includes(value) ||
     hero.includes(value) ||
     servicesSection.includes(value) ||
     teamSection.includes(value) ||
+    gallerySection.includes(value) ||
     contactSection.includes(value) ||
     cookieConsent.includes(value) ||
     footer.includes(value) ||
