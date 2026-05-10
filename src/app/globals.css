@@ -518,10 +518,18 @@ section[id] {
   padding: 16px;
 }
 
-.team-card img,
+.team-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .gallery-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -640,8 +648,24 @@ section[id] {
   margin: 0;
 }
 
+.gallery-trigger {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.gallery-trigger img,
 .gallery-card img {
   border-radius: 0;
+  transition: transform 0.2s ease;
+}
+
+.gallery-trigger:hover img,
+.gallery-trigger:focus-visible img {
+  transform: scale(1.03);
 }
 
 .gallery-card figcaption {
@@ -649,6 +673,54 @@ section[id] {
   color: var(--navy);
   font-size: 14px;
   font-weight: 900;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(10, 29, 55, 0.88);
+}
+
+.gallery-lightbox-content {
+  width: min(100%, 960px);
+  max-height: calc(100vh - 80px);
+  margin: 0;
+}
+
+.gallery-lightbox-content img {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.gallery-lightbox-content figcaption {
+  margin-top: 12px;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1;
 }
 
 .contact-list {
@@ -880,7 +952,7 @@ button:focus-visible {
   }
 
   .services-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .gallery-grid {
