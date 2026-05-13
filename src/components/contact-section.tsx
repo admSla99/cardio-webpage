@@ -28,7 +28,7 @@ export function ContactSection() {
             ))}
           </div>
 
-          <a href={`tel:${contact.phone.replaceAll(" ", "")}`} className="button button-primary">
+          <a href="tel:+421915148518" className="button button-primary">
             {siteConfig.primaryCta}
           </a>
         </div>
