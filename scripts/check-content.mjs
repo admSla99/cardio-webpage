@@ -44,7 +44,12 @@ const required = [
   "7:00-13:00",
   "neordinuje",
   "SNP 501/1",
-  "08301 Sabinov",
+  "083 01 Sabinov",
+  "tel:+421915148518",
+  "tel:+421517739742",
+  "GeoCoordinates",
+  "49.0990833",
+  "21.1083056",
   "VšZP, Dôvera, Union",
   "IČO: 52068811",
   "0915 148 518",
@@ -169,6 +174,9 @@ const forbidden = [
   "/images/entry.jpg",
   "/images/room1.jpg",
   "/images/room2.jpg",
+  "08301 Sabinov",
+  "tel:0915148518",
+  "tel:0517739742",
 ];
 
 for (const value of forbidden) {
@@ -250,7 +258,7 @@ for (const value of openingHoursVisualRequirements) {
 
 const mapRequirements = [
   "mapEmbedUrl",
-  "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
+  "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%20083%2001%20Sabinov&output=embed",
   "<iframe",
   "title={`${contact.location} mapa`}",
   "loading=\"lazy\"",
