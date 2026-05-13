@@ -106,10 +106,10 @@ export const galleryItems = [
 
 export const contact = {
   location: "Poliklinika Sabinov",
-  addressLine: "SNP 501/1, 08301 Sabinov",
-  addressLines: ["Poliklinika", "SNP 501/1", "08301 Sabinov"],
+  addressLine: "SNP 501/1, 083 01 Sabinov",
+  addressLines: ["Poliklinika", "SNP 501/1", "083 01 Sabinov"],
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%2008301%20Sabinov&output=embed",
+    "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%20083%2001%20Sabinov&output=embed",
   provider: "MEDEPH s.r.o.",
   companyId: "IČO: 52068811",
   insurance: "VšZP, Dôvera, Union",
@@ -117,10 +117,10 @@ export const contact = {
   landline: "051 773 9742",
   email: "kardiosb@gmail.com",
   points: [
-    { label: "Mobil", value: "0915 148 518", icon: "phone", href: "tel:0915148518" },
-    { label: "Telefón", value: "051 773 9742", icon: "phone", href: "tel:0517739742" },
+    { label: "Mobil", value: "0915 148 518", icon: "phone", href: "tel:+421915148518" },
+    { label: "Telefón", value: "051 773 9742", icon: "phone", href: "tel:+421517739742" },
     { label: "Email", value: "kardiosb@gmail.com", icon: "calendar", href: "mailto:kardiosb@gmail.com" },
-    { label: "Miesto prevádzkovania", value: "Poliklinika, SNP 501/1, 08301 Sabinov", icon: "pin" },
+    { label: "Miesto prevádzkovania", value: "Poliklinika, SNP 501/1, 083 01 Sabinov", icon: "pin" },
     { label: "Poisťovne", value: "VšZP, Dôvera, Union", icon: "calendar" },
     { label: "Poskytovateľ", value: "MEDEPH s.r.o., IČO: 52068811", icon: "pulse" },
     { label: "Objednanie", value: "Telefonicky aj mailom", icon: "calendar" },
