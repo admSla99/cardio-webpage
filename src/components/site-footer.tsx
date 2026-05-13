@@ -40,8 +40,11 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="footer-bottom">
-        <div className="container">
-          © {year} MEDEPH s.r.o. - Odborná kardiologická a interná ambulancia. Všetky práva vyhradené.
+        <div className="container footer-bottom-inner">
+          <span>
+            © {year} MEDEPH s.r.o. - Odborná kardiologická a interná ambulancia. Všetky práva vyhradené.
+          </span>
+          <span className="footer-credit">Vytvoril Adam Slaninka</span>
         </div>
       </div>
     </footer>
