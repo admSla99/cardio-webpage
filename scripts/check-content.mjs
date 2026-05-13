@@ -12,9 +12,16 @@ const teamSection = readFileSync(new URL("../src/components/team-section.tsx", i
 const gallerySection = readFileSync(new URL("../src/components/gallery-section.tsx", import.meta.url), "utf8");
 const contactSection = readFileSync(new URL("../src/components/contact-section.tsx", import.meta.url), "utf8");
 const cookieConsent = readFileSync(new URL("../src/components/cookie-consent.tsx", import.meta.url), "utf8");
+const structuredData = readFileSync(new URL("../src/components/structured-data.tsx", import.meta.url), "utf8");
 const page = readFileSync(new URL("../src/app/page.tsx", import.meta.url), "utf8");
 const footer = readFileSync(new URL("../src/components/site-footer.tsx", import.meta.url), "utf8");
 const layout = readFileSync(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
+const sitemap = existsSync(new URL("../src/app/sitemap.ts", import.meta.url))
+  ? readFileSync(new URL("../src/app/sitemap.ts", import.meta.url), "utf8")
+  : "";
+const robots = existsSync(new URL("../src/app/robots.ts", import.meta.url))
+  ? readFileSync(new URL("../src/app/robots.ts", import.meta.url), "utf8")
+  : "";
 const appIconUrl = new URL("../src/app/icon.svg", import.meta.url);
 const appIcon = existsSync(appIconUrl) ? readFileSync(appIconUrl, "utf8") : "";
 const requiredImageFiles = [
@@ -86,6 +93,21 @@ const required = [
   "document.removeEventListener(\"keydown\"",
   "handleKeyDown",
   "aspect-ratio: 3 / 4",
+  "https://www.medeph.sk",
+  "metadataBase",
+  "alternates",
+  "canonical",
+  "sitemap(): MetadataRoute.Sitemap",
+  "robots(): MetadataRoute.Robots",
+  "sitemap: `${siteConfig.url}/sitemap.xml`",
+  "openGraph",
+  "twitter",
+  "summary_large_image",
+  "MedicalClinic",
+  "application/ld+json",
+  "openingHoursSpecification",
+  "availableService",
+  "sizes=\"(max-width: 768px) 100vw, 50vw\"",
 ];
 
 for (const imageFile of requiredImageFiles) {
@@ -104,8 +126,11 @@ for (const value of required) {
     !gallerySection.includes(value) &&
     !contactSection.includes(value) &&
     !cookieConsent.includes(value) &&
+    !structuredData.includes(value) &&
     !footer.includes(value) &&
     !layout.includes(value) &&
+    !sitemap.includes(value) &&
+    !robots.includes(value) &&
     !appIcon.includes(value) &&
     !openingHours.includes(value) &&
     !page.includes(value) &&
@@ -156,6 +181,7 @@ for (const value of forbidden) {
     gallerySection.includes(value) ||
     contactSection.includes(value) ||
     cookieConsent.includes(value) ||
+    structuredData.includes(value) ||
     footer.includes(value) ||
     layout.includes(value) ||
     openingHours.includes(value) ||

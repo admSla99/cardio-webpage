@@ -13,6 +13,7 @@ export const designTokens = {
 export const siteConfig = {
   name: "MEDEPH s.r.o.",
   shortName: "MEDEPH s.r.o.",
+  url: "https://www.medeph.sk",
   location: "Poliklinika Sabinov",
   description:
     "Odborná kardiologická a interná ambulancia v Poliklinike Sabinov.",
