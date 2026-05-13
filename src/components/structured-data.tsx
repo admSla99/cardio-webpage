@@ -48,6 +48,11 @@ export function StructuredData() {
       "@type": "City",
       name: "Sabinov",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 49.0990833,
+      longitude: 21.1083056,
+    },
     medicalSpecialty: [
       "https://schema.org/Cardiovascular",
       {
