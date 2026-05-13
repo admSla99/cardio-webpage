@@ -113,6 +113,7 @@ const required = [
   "openingHoursSpecification",
   "availableService",
   "sizes=\"(max-width: 768px) 100vw, 50vw\"",
+  "Vytvoril Adam Slaninka",
 ];
 
 for (const imageFile of requiredImageFiles) {
