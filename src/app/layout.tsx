@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/entry.webp",
-        width: 900,
-        height: 1200,
+        width: 1200,
+        height: 1600,
         alt: "Vstup do ambulancie MEDEPH s.r.o. v Poliklinike Sabinov",
       },
     ],
