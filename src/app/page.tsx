@@ -6,11 +6,13 @@ import { OpeningHoursSection } from "@/components/opening-hours-section";
 import { ServicesSection } from "@/components/services-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { StructuredData } from "@/components/structured-data";
 import { TeamSection } from "@/components/team-section";
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <SiteHeader />
       <main>
         <HeroSection />
