@@ -13,7 +13,7 @@ export function TeamSection() {
         <div className="team-grid">
           {doctors.map((doctor, index) => (
             <article key={`${doctor.name}-${index}`} className="card team-card">
-              <Image src={doctor.image} alt="" width={900} height={650} />
+              <Image src={doctor.image} alt="" width={941} height={1672} />
               <div>
                 <h3>{doctor.name}</h3>
                 <p>{doctor.role}</p>

@@ -66,12 +66,12 @@ export const doctors = [
   {
     name: "MUDr. Eva Hrbatá",
     role: "Lekár",
-    image: "/images/diagnostics.svg",
+    image: "/images/caricature-doc.webp",
   },
   {
     name: "Andrea Slaninková",
     role: "Sestra",
-    image: "/images/reception.svg",
+    image: "/images/caricature-nurse.webp",
   },
 ] as const;
 

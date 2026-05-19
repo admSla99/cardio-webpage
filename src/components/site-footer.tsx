@@ -44,7 +44,6 @@ export function SiteFooter() {
           <span>
             © {year} MEDEPH s.r.o. - Odborná kardiologická a interná ambulancia. Všetky práva vyhradené.
           </span>
-          <span className="footer-credit">Vytvoril Adam Slaninka</span>
         </div>
       </div>
     </footer>
