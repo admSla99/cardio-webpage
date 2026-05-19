@@ -49,13 +49,7 @@ export const services = [
     icon: "monitor",
   },
   {
-    title: "Preventívne kardiologické vyšetrenie",
-    description:
-      "Komplexné zhodnotenie rizikových faktorov a odporúčania pre dlhodobú starostlivosť o srdce.",
-    icon: "stethoscope",
-  },
-  {
-    title: "Holter EKG / tlakový Holter",
+    title: "Holter EKG / Holter TK",
     description:
       "Dlhodobé monitorovanie rytmu srdca alebo krvného tlaku počas bežného dňa pacienta.",
     icon: "timer",
@@ -95,11 +89,11 @@ export const galleryItems = [
     image: "/images/entry.webp",
   },
   {
-    title: "Vyšetrovacia miestnosť",
+    title: "Ambulancia - Lekár",
     image: "/images/room1.webp",
   },
   {
-    title: "Ambulancia MEDEPH",
+    title: "Ambulancia - Sestra",
     image: "/images/room2.webp",
   },
 ] as const;
@@ -129,8 +123,8 @@ export const contact = {
 
 export const heroStats = [
   { label: "EKG", value: "12", unit: "zvodov" },
-  { label: "Holter", value: "24", unit: "hod." },
-  { label: "Starostlivosť", value: "1:1", unit: "prístup" },
+  { label: "Holter TK", value: "24", unit: "" },
+  { label: "Holter", value: "24 - 72", unit: "EKG" },
 ] as const;
 
 export const heroSpecialtyWords = ["kardiologická", "interná"] as const;

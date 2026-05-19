@@ -46,7 +46,8 @@ export function HeroSection() {
               <div key={stat.label} className="metric-card">
                 <div className="metric-value">{stat.value}</div>
                 <div className="metric-label">
-                  {stat.label} · {stat.unit}
+                  {stat.label}
+                  {stat.unit ? ` · ${stat.unit}` : ""}
                 </div>
               </div>
             ))}
