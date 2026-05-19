@@ -28,6 +28,8 @@ const requiredImageFiles = [
   "../public/images/entry.webp",
   "../public/images/room1.webp",
   "../public/images/room2.webp",
+  "../public/images/caricature-doc.webp",
+  "../public/images/caricature-nurse.webp",
 ];
 
 const required = [
@@ -86,6 +88,8 @@ const required = [
   "/images/entry.webp",
   "/images/room1.webp",
   "/images/room2.webp",
+  "/images/caricature-doc.webp",
+  "/images/caricature-nurse.webp",
   "repeat(5, minmax(0, 1fr))",
   "turbopack",
   "root: projectRoot",
@@ -113,7 +117,6 @@ const required = [
   "openingHoursSpecification",
   "availableService",
   "sizes=\"(max-width: 768px) 100vw, 50vw\"",
-  "Vytvoril Adam Slaninka",
 ];
 
 for (const imageFile of requiredImageFiles) {
@@ -175,9 +178,12 @@ const forbidden = [
   "/images/entry.jpg",
   "/images/room1.jpg",
   "/images/room2.jpg",
+  "/images/diagnostics.svg",
+  "/images/reception.svg",
   "08301 Sabinov",
   "tel:0915148518",
   "tel:0517739742",
+  "Vytvoril Adam Slaninka",
 ];
 
 for (const value of forbidden) {
