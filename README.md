@@ -1,6 +1,6 @@
 # MEDEPH s.r.o. website
 
-Prezentačný web pre kardiologickú a internú ambulanciu MEDEPH s.r.o. v Poliklinike Sabinov.
+Presentation website for the MEDEPH s.r.o. cardiology and internal medicine outpatient clinic at Poliklinika Sabinov.
 
 ![Hero section](public/images/hero-screenshot.png)
 
