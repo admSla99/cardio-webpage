@@ -80,7 +80,7 @@ export const openingHours = [
 ] as const;
 
 export const openingNotices = [
-  "Momentálne nie sú zverejnené žiadne mimoriadne oznamy.",
+  "Od 3.7.2026 do 10.7.2026 čerpáme dovolenku, ambulancia nebude ordinovať.",
 ] as const;
 
 export const galleryItems = [
