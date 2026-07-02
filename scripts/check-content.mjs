@@ -70,7 +70,7 @@ const required = [
   "map-meta",
   "Telefonicky aj mailom",
   "Oznamy",
-  "Momentálne nie sú zverejnené žiadne mimoriadne oznamy.",
+  "Od 3.7.2026 do 10.7.2026 čerpáme dovolenku, ambulancia nebude ordinovať.",
   "opening-hours-layout",
   "opening-hours-main",
   "notice-card-wide",
