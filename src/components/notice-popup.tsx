@@ -9,6 +9,7 @@ type NoticePopupProps = {
 
 export function NoticePopup({ notices }: NoticePopupProps) {
   const [isOpen, setIsOpen] = useState(notices.length > 0);
+  const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -19,6 +20,31 @@ export function NoticePopup({ notices }: NoticePopupProps) {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !dialogRef.current) {
+        return;
+      }
+
+      const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+      if (!firstFocusableElement || !lastFocusableElement) {
+        event.preventDefault();
+        dialogRef.current.focus();
+      } else if (event.shiftKey && document.activeElement === firstFocusableElement) {
+        event.preventDefault();
+        lastFocusableElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+        event.preventDefault();
+        firstFocusableElement.focus();
+      } else if (!dialogRef.current.contains(document.activeElement)) {
+        event.preventDefault();
+        (event.shiftKey ? lastFocusableElement : firstFocusableElement).focus();
       }
     };
 
@@ -48,8 +74,10 @@ export function NoticePopup({ notices }: NoticePopupProps) {
       }}
     >
       <section
+        ref={dialogRef}
         className="notice-popup"
         role="dialog"
+        tabIndex={-1}
         aria-modal="true"
         aria-labelledby="notice-popup-title"
         aria-describedby="notice-popup-content"
