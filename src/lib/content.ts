@@ -79,9 +79,8 @@ export const openingHours = [
   { day: "Nedeľa", hours: "neordinuje" },
 ] as const;
 
-export const openingNotices = [
-  "Od 3.7.2026 do 10.7.2026 čerpáme dovolenku, ambulancia nebude ordinovať.",
-] as const;
+export const openingNotices: readonly string[] = [];
+export const activeOpeningNotices = openingNotices.filter((notice) => notice.trim().length > 0);
 
 export const galleryItems = [
   {
