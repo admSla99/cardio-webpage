@@ -638,6 +638,118 @@ section[id] {
   line-height: 1.65;
 }
 
+.notice-popup-backdrop {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 24px;
+  background: rgba(10, 29, 55, 0.68);
+  backdrop-filter: blur(6px);
+  animation: notice-backdrop-in 180ms ease-out;
+}
+
+.notice-popup {
+  position: relative;
+  width: min(100%, 560px);
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  background: white;
+  padding: 40px;
+  box-shadow: 0 28px 90px rgba(10, 29, 55, 0.3);
+  animation: notice-popup-in 220ms ease-out;
+}
+
+.notice-popup::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--red);
+  content: "";
+}
+
+.notice-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--navy);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.notice-popup-close:hover {
+  background: rgba(225, 29, 72, 0.1);
+  color: var(--red);
+}
+
+.notice-popup-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(225, 29, 72, 0.1);
+  color: var(--red);
+}
+
+.notice-popup-eyebrow {
+  margin: 24px 0 0;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.notice-popup h2 {
+  margin: 8px 48px 0 0;
+  color: var(--navy);
+  font-size: clamp(26px, 5vw, 34px);
+  line-height: 1.2;
+}
+
+.notice-popup-content {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.notice-popup-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.notice-popup-confirm {
+  width: 100%;
+  margin-top: 28px;
+  cursor: pointer;
+}
+
+@keyframes notice-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes notice-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
 .gallery-heading {
   display: grid;
   gap: 24px;
@@ -1018,6 +1130,15 @@ button:focus-visible {
   .hours-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .notice-popup-backdrop {
+    align-items: end;
+    padding: 12px;
+  }
+
+  .notice-popup {
+    padding: 32px 24px 24px;
   }
 
   .cookie-consent {

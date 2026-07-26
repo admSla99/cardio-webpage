@@ -1,5 +1,5 @@
 import { Icon } from "@/components/icons";
-import { openingHours, openingNotices } from "@/lib/content";
+import { activeOpeningNotices, openingHours } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export function OpeningHoursSection() {
@@ -35,9 +35,10 @@ export function OpeningHoursSection() {
             </span>
             <h3>Oznamy</h3>
           </div>
-          {openingNotices.map((notice, index) => (
+          {activeOpeningNotices.map((notice, index) => (
             <p key={`${notice}-${index}`}>{notice}</p>
           ))}
+          {activeOpeningNotices.length === 0 && <p>Aktuálne žiadne oznamy.</p>}
         </aside>
       </div>
     </section>

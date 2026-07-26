@@ -7,6 +7,7 @@ const cssLower = css.toLowerCase();
 const header = readFileSync(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
 const hero = readFileSync(new URL("../src/components/hero-section.tsx", import.meta.url), "utf8");
 const openingHours = readFileSync(new URL("../src/components/opening-hours-section.tsx", import.meta.url), "utf8");
+const noticePopup = readFileSync(new URL("../src/components/notice-popup.tsx", import.meta.url), "utf8");
 const servicesSection = readFileSync(new URL("../src/components/services-section.tsx", import.meta.url), "utf8");
 const teamSection = readFileSync(new URL("../src/components/team-section.tsx", import.meta.url), "utf8");
 const gallerySection = readFileSync(new URL("../src/components/gallery-section.tsx", import.meta.url), "utf8");
@@ -74,6 +75,11 @@ const required = [
   "opening-hours-layout",
   "opening-hours-main",
   "notice-card-wide",
+  "Aktuálne žiadne oznamy.",
+  "NoticePopup",
+  "notices.length === 0",
+  "notice-popup-backdrop",
+  "aria-modal=\"true\"",
   "CookieConsent",
   "cookie-consent",
   "medephCookieConsent",
@@ -147,6 +153,7 @@ for (const value of required) {
     !robots.includes(value) &&
     !appIcon.includes(value) &&
     !openingHours.includes(value) &&
+    !noticePopup.includes(value) &&
     !page.includes(value) &&
     !cssLower.includes(value.toLowerCase())
   ) {
@@ -157,6 +164,7 @@ for (const value of required) {
 const forbidden = [
   "#20B2AA",
   "#006A65",
+  "Od 3.7.2026 do 10.7.2026 čerpáme dovolenku, ambulancia nebude ordinovať.",
   "Ján Novák",
   "Anna Kováčová",
   "MUDr. Meno Priezvisko",
@@ -214,6 +222,7 @@ for (const value of forbidden) {
     footer.includes(value) ||
     layout.includes(value) ||
     openingHours.includes(value) ||
+    noticePopup.includes(value) ||
     page.includes(value) ||
     cssLower.includes(value.toLowerCase())
   ) {
