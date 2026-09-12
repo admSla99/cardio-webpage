@@ -5,10 +5,12 @@ import { Icon } from "@/components/icons";
 
 type NoticePopupProps = {
   notices: readonly string[];
+  /** Redaktor môže oznam ponechať len v sekcii Ordinačné hodiny a okno nezobraziť. */
+  enabled?: boolean;
 };
 
-export function NoticePopup({ notices }: NoticePopupProps) {
-  const [isOpen, setIsOpen] = useState(notices.length > 0);
+export function NoticePopup({ notices, enabled = true }: NoticePopupProps) {
+  const [isOpen, setIsOpen] = useState(enabled && notices.length > 0);
   const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 

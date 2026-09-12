@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Icon } from "@/components/icons";
-import { contact, footerLinks, siteConfig } from "@/lib/content";
+import { footerLinks, siteConfig } from "@/lib/content";
+import { getContact } from "@/lib/site-content";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const contact = await getContact();
   const year = new Date().getFullYear();
 
   return (

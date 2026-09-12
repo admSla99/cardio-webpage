@@ -1,6 +1,7 @@
-import { contact, openingHours, services, siteConfig } from "@/lib/content";
+import { services, siteConfig } from "@/lib/content";
+import { getContact, getOpeningHours, type OpeningHoursRow } from "@/lib/site-content";
 
-const dayOfWeekMap: Record<(typeof openingHours)[number]["day"], string> = {
+const dayOfWeekMap: Record<string, string> = {
   Pondelok: "Monday",
   Utorok: "Tuesday",
   Streda: "Wednesday",
@@ -10,9 +11,9 @@ const dayOfWeekMap: Record<(typeof openingHours)[number]["day"], string> = {
   Nedeľa: "Sunday",
 };
 
-function buildOpeningHoursSpecification() {
+function buildOpeningHoursSpecification(openingHours: readonly OpeningHoursRow[]) {
   return openingHours
-    .filter((row) => row.hours !== "neordinuje")
+    .filter((row) => row.hours !== "neordinuje" && dayOfWeekMap[row.day])
     .map((row) => {
       const [opens, closes] = row.hours.split("-");
 
@@ -25,7 +26,9 @@ function buildOpeningHoursSpecification() {
     });
 }
 
-export function StructuredData() {
+export async function StructuredData() {
+  const [contact, openingHours] = await Promise.all([getContact(), getOpeningHours()]);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
@@ -34,7 +37,7 @@ export function StructuredData() {
     url: siteConfig.url,
     description: siteConfig.description,
     image: `${siteConfig.url}/images/entry.webp`,
-    telephone: "+421915148518",
+    telephone: contact.phoneHref.replace("tel:", ""),
     email: contact.email,
     hasMap: contact.mapEmbedUrl,
     address: {
@@ -65,14 +68,14 @@ export function StructuredData() {
       name: service.title,
       description: service.description,
     })),
-    openingHoursSpecification: buildOpeningHoursSpecification(),
+    openingHoursSpecification: buildOpeningHoursSpecification(openingHours),
   };
 
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        __html: JSON.stringify(structuredData).replace(/</g, "\u003c"),
       }}
     />
   );

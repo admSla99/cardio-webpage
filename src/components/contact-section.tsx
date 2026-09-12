@@ -1,7 +1,10 @@
 import { Icon } from "@/components/icons";
-import { contact, siteConfig } from "@/lib/content";
+import { siteConfig } from "@/lib/content";
+import { getContact } from "@/lib/site-content";
 
-export function ContactSection() {
+export async function ContactSection() {
+  const contact = await getContact();
+
   return (
     <section id="kontakt" className="section section-white">
       <div className="container contact-grid">
@@ -22,13 +25,13 @@ export function ContactSection() {
                 </span>
                 <div>
                   <span>{item.label}</span>
-                  {"href" in item ? <a href={item.href}>{item.value}</a> : <strong>{item.value}</strong>}
+                  {item.href ? <a href={item.href}>{item.value}</a> : <strong>{item.value}</strong>}
                 </div>
               </div>
             ))}
           </div>
 
-          <a href="tel:+421915148518" className="button button-primary">
+          <a href={contact.phoneHref} className="button button-primary">
             {siteConfig.primaryCta}
           </a>
         </div>
