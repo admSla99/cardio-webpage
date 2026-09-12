@@ -1,8 +1,10 @@
 import { Icon } from "@/components/icons";
-import { activeOpeningNotices, openingHours } from "@/lib/content";
+import { getNotices, getOpeningHours } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
-export function OpeningHoursSection() {
+export async function OpeningHoursSection() {
+  const [openingHours, notices] = await Promise.all([getOpeningHours(), getNotices()]);
+
   return (
     <section id="ordinacne-hodiny" className="section section-white">
       <div className="container opening-hours-layout">
@@ -35,10 +37,10 @@ export function OpeningHoursSection() {
             </span>
             <h3>Oznamy</h3>
           </div>
-          {activeOpeningNotices.map((notice, index) => (
+          {notices.items.map((notice, index) => (
             <p key={`${notice}-${index}`}>{notice}</p>
           ))}
-          {activeOpeningNotices.length === 0 && <p>Aktuálne žiadne oznamy.</p>}
+          {notices.items.length === 0 && <p>Aktuálne žiadne oznamy.</p>}
         </aside>
       </div>
     </section>

@@ -10,6 +10,7 @@ Presentation website for the MEDEPH s.r.o. cardiology and internal medicine outp
 - React 19
 - TypeScript
 - CSS
+- Sanity
 - ESLint
 
 ## Development
@@ -17,6 +18,19 @@ Presentation website for the MEDEPH s.r.o. cardiology and internal medicine outp
 ```bash
 npm install
 npm run dev
+```
+
+## Content management
+
+Notices, opening hours and contact details are edited in Sanity Studio at `/studio`.
+Everything else lives in `src/lib/content.ts`, which also acts as the fallback when
+Sanity is unreachable or not configured.
+
+Setup instructions are in [docs/sanity-setup.md](docs/sanity-setup.md).
+
+```bash
+cp .env.example .env.local
+npm run sanity:seed
 ```
 
 ## Checks

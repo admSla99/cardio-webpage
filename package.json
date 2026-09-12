@@ -9,12 +9,19 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "typecheck": "tsc --noEmit",
-    "test": "node scripts/check-content.mjs"
+    "test": "node scripts/check-content.mjs",
+    "sanity:seed": "node scripts/seed-sanity.mjs"
   },
   "dependencies": {
+    "@sanity/client": "^8.6.1",
+    "@sanity/locale-cs-cz": "^1.1.36",
+    "@sanity/vision": "^6.13.2",
     "next": "^16.2.6",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "next-sanity": "^13.3.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sanity": "^6.13.2",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
     "@types/node": "^20",

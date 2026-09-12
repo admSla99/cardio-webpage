@@ -302,4 +302,86 @@ for (const value of mapRequirements) {
   }
 }
 
+// --- Sanity CMS ---------------------------------------------------------
+// Obsah, ktorý zákazník upravuje, ide cez Sanity. `src/lib/content.ts` zostáva
+// ako záložný obsah, aby build prešiel aj bez nastavených premenných prostredia.
+
+const sanityFiles = {
+  config: "../sanity.config.ts",
+  env: "../src/sanity/env.ts",
+  client: "../src/sanity/client.ts",
+  fetch: "../src/sanity/fetch.ts",
+  queries: "../src/sanity/queries.ts",
+  structure: "../src/sanity/structure.ts",
+  schemaIndex: "../src/sanity/schemaTypes/index.ts",
+  schemaOznamy: "../src/sanity/schemaTypes/oznamy.ts",
+  schemaHodiny: "../src/sanity/schemaTypes/ordinacneHodiny.ts",
+  schemaKontakt: "../src/sanity/schemaTypes/kontakt.ts",
+  siteContent: "../src/lib/site-content.ts",
+  studioPage: "../src/app/studio/[[...tool]]/page.tsx",
+  studioClient: "../src/app/studio/[[...tool]]/studio-client.tsx",
+  revalidateRoute: "../src/app/api/revalidate/route.ts",
+  envExample: "../.env.example",
+};
+
+const sanity = {};
+
+for (const [key, relativePath] of Object.entries(sanityFiles)) {
+  const fileUrl = new URL(relativePath, import.meta.url);
+
+  if (!existsSync(fileUrl)) {
+    throw new Error(`Missing required Sanity file: ${relativePath}`);
+  }
+
+  sanity[key] = readFileSync(fileUrl, "utf8");
+}
+
+const sanityRequirements = [
+  // Studio je po slovensky popísané a beží v češtine, ktorá je zákazníkovi zrozumiteľná.
+  [sanity.config, ["csCZLocale", "basePath: \"/studio\"", "structureTool", "templates:", "actions:"]],
+  // Tri singleton dokumenty, nič viac zákazník vytvárať nemá.
+  [sanity.schemaIndex, ["oznamy", "ordinacneHodiny", "kontakt", "SINGLETON_TYPES"]],
+  [sanity.schemaOznamy, ["polozky", "zobrazitPopup"]],
+  [sanity.schemaHodiny, ["dni", "hodiny", "neordinuje", "Pondelok", "Nedeľa"]],
+  [sanity.schemaKontakt, ["mobil", "telefon", "email", "miesto", "ulica", "mesto", "poistovne", "ico"]],
+  // Bez konfigurácie sa musí stránka vykresliť z predvoleného obsahu.
+  [sanity.env, ["isSanityConfigured", "NEXT_PUBLIC_SANITY_PROJECT_ID"]],
+  [sanity.client, ["isSanityConfigured", "useCdn: false"]],
+  [sanity.fetch, ["return null", "catch", "CONTENT_TAG", "revalidate"]],
+  [sanity.siteContent, [
+    "contactDefaults",
+    "openingHoursDefaults",
+    "noticeDefaults",
+    "getNotices",
+    "getOpeningHours",
+    "getContact",
+    "phoneHref",
+    "output=embed",
+  ]],
+  // Webhook zo Sanity vyhodí cache, aby bola zmena okamžite viditeľná.
+  [sanity.revalidateRoute, ["parseBody", "isValidSignature", "revalidateTag", "SANITY_REVALIDATE_SECRET"]],
+  [sanity.studioPage, ["isSanityConfigured", "robots: \"noindex\"", "StudioClient"]],
+  [sanity.studioClient, ["\"use client\"", "NextStudio", "sanity.config"]],
+  [sanity.envExample, ["NEXT_PUBLIC_SANITY_PROJECT_ID", "SANITY_REVALIDATE_SECRET"]],
+  // Komponenty musia čítať obsah cez prístupovú vrstvu, nie priamo z content.ts.
+  [openingHours, ["getOpeningHours", "getNotices", "async function"]],
+  [contactSection, ["getContact", "async function", "contact.phoneHref"]],
+  [footer, ["getContact", "async function"]],
+  [structuredData, ["getContact", "getOpeningHours", "async function"]],
+  [page, ["getNotices", "async function", "notices.showPopup"]],
+  [noticePopup, ["enabled"]],
+  // Administrácia nesmie byť v indexe vyhľadávačov.
+  [robots, ["disallow", "/studio"]],
+];
+
+for (const [source, values] of sanityRequirements) {
+  for (const value of values) {
+    if (!source.includes(value)) {
+      throw new Error(`Missing required Sanity wiring: ${value}`);
+    }
+  }
+}
+
+console.log("Sanity CMS checks passed.");
+
 console.log("Content safety checks passed.");
