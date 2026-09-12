@@ -9,13 +9,15 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import { TeamSection } from "@/components/team-section";
-import { activeOpeningNotices } from "@/lib/content";
+import { getNotices } from "@/lib/site-content";
 
-export default function Home() {
+export default async function Home() {
+  const notices = await getNotices();
+
   return (
     <>
       <StructuredData />
-      <NoticePopup notices={activeOpeningNotices} />
+      <NoticePopup notices={notices.items} enabled={notices.showPopup} />
       <SiteHeader />
       <main>
         <HeroSection />

@@ -100,7 +100,7 @@ export const galleryItems = [
 export const contact = {
   location: "Poliklinika Sabinov",
   addressLine: "SNP 501/1, 083 01 Sabinov",
-  addressLines: ["Poliklinika", "SNP 501/1", "083 01 Sabinov"],
+  addressLines: ["SNP 501/1", "083 01 Sabinov"],
   mapEmbedUrl:
     "https://www.google.com/maps?q=Poliklinika%20Sabinov%2C%20SNP%20501%2F1%2C%20083%2001%20Sabinov&output=embed",
   provider: "MEDEPH s.r.o.",

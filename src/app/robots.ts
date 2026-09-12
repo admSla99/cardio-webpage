@@ -6,6 +6,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      // Administračné rozhranie nepatrí do indexu vyhľadávačov.
+      disallow: ["/studio", "/api/"],
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,
   };
