@@ -321,7 +321,6 @@ const sanityFiles = {
   studioPage: "../src/app/studio/[[...tool]]/page.tsx",
   studioClient: "../src/app/studio/[[...tool]]/studio-client.tsx",
   revalidateRoute: "../src/app/api/revalidate/route.ts",
-  envExample: "../.env.example",
 };
 
 const sanity = {};
@@ -362,7 +361,6 @@ const sanityRequirements = [
   [sanity.revalidateRoute, ["parseBody", "isValidSignature", "revalidateTag", "SANITY_REVALIDATE_SECRET"]],
   [sanity.studioPage, ["isSanityConfigured", "robots: \"noindex\"", "StudioClient"]],
   [sanity.studioClient, ["\"use client\"", "NextStudio", "sanity.config"]],
-  [sanity.envExample, ["NEXT_PUBLIC_SANITY_PROJECT_ID", "SANITY_REVALIDATE_SECRET"]],
   // Komponenty musia čítať obsah cez prístupovú vrstvu, nie priamo z content.ts.
   [openingHours, ["getOpeningHours", "getNotices", "async function"]],
   [contactSection, ["getContact", "async function", "contact.phoneHref"]],

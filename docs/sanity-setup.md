@@ -15,10 +15,14 @@ Build preto prejde aj bez premenných prostredia.
 
 ## 2. Premenné prostredia
 
-Skopírujte `.env.example` do `.env.local` a doplňte hodnoty.
+Vytvorte súbor `.env.local` s týmito premennými:
 
 ```bash
-cp .env.example .env.local
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2026-09-01
+SANITY_REVALIDATE_SECRET=
+SANITY_API_WRITE_TOKEN=
 ```
 
 `SANITY_REVALIDATE_SECRET` je ľubovoľný náhodný reťazec. Vygenerovať ho môžete takto:

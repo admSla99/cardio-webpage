@@ -28,8 +28,9 @@ Sanity is unreachable or not configured.
 
 Setup instructions are in [docs/sanity-setup.md](docs/sanity-setup.md).
 
+Create `.env.local` with the variables listed there, then load the initial content.
+
 ```bash
-cp .env.example .env.local
 npm run sanity:seed
 ```
 
